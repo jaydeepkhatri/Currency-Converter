@@ -5,6 +5,7 @@ const maincurrencyEl = document.querySelector("#maincurrency");
 let maincurrency = maincurrencyEl.value
 const datenowEl = document.querySelector("#datenow");
 const othercurrencys = document.querySelector("#othercurrencys");
+const errmsg = document.querySelector("#errmsg");
 let rates = "";
 const currencynames = {
 	ARS: "Argentine peso",
@@ -68,7 +69,7 @@ async function getexchange() {
 		.then(data => {
 			rates = data.rates;
 			datenowEl.innerHTML = `(${data.date})`;
-			consolefname(rates);
+			writecurrency(rates);
 		})
 }
 maincurrencyEl.addEventListener("change", () => {
@@ -77,9 +78,20 @@ maincurrencyEl.addEventListener("change", () => {
 })
 currencyvalueEl.addEventListener("input", () => {
 	currencyvalue = currencyvalueEl.value;
-	getexchange();
+	console.log(isNaN(currencyvalue));
+	if (isNaN(currencyvalue)) {
+		errmsg.classList = "errmsg";
+		errmsg.innerHTML = "Write a number";
+		othercurrencys.innerHTML = "";
+	} else {
+		errmsg.classList = "";
+		errmsg.innerHTML = "";
+		getexchange();
+
+	}
+
 });
-function consolefname(rates) {
+function writecurrency(rates) {
 	othercurrencys.innerHTML = "";
 	console.log(rates)
 	Object.keys(rates).forEach((key) => {
