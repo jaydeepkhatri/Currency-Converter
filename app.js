@@ -69,7 +69,15 @@ async function getexchange() {
 		.then(data => {
 			rates = data.rates;
 			datenowEl.innerHTML = `(${data.date})`;
-			writecurrency(rates);
+			let sortedrates = {};
+
+			Object.keys(rates).sort().forEach(function (key) {
+				sortedrates[key] = rates[key];
+			});
+
+
+
+			writecurrency(sortedrates);
 		})
 }
 maincurrencyEl.addEventListener("change", () => {
@@ -80,21 +88,19 @@ maincurrencyEl.addEventListener("change", () => {
 currencyvalueEl.addEventListener("input", () => {
 	currencyvalue = currencyvalueEl.value;
 	console.log(isNaN(currencyvalue));
-	if (isNaN(currencyvalue)) {
-		errmsg.classList = "errmsg";
-		errmsg.innerHTML = "Write a number";
-		othercurrencys.innerHTML = "";
-	} else {
+	if (!isNaN(parseFloat(currencyvalue)) && !isNaN(currencyvalue - 0)) {
 		errmsg.classList = "";
 		errmsg.innerHTML = "";
 		getexchange();
-
+	} else {
+		errmsg.classList = "errmsg";
+		errmsg.innerHTML = "Write a number";
+		othercurrencys.innerHTML = "";
 	}
 
 });
 function writecurrency(rates) {
 	othercurrencys.innerHTML = "";
-	console.log(rates)
 	Object.keys(rates).forEach((key) => {
 		// console.log(`${currencynames[key]} : ${rates[key]}`);
 		let eachcurrency = document.createElement("div");
@@ -111,9 +117,9 @@ function writecurrency(rates) {
 		let eachcurrencyrate = document.createElement("span");
 		eachcurrencyrate.innerHTML = (rates[key] * currencyvalue).toFixed(2);
 		eachcurrency.append(eachcurrencyrate);
-		// eachcurrency.innerHTML = currencynames[key];
-		// eachcurrency.innerHTML = `${currencynames[key]} : ${(rates[key] * currencyvalue).toFixed(2)}`;
+
 		othercurrencys.append(eachcurrency);
 	});
 }
+
 getexchange();
