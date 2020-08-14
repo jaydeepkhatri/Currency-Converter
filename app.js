@@ -7,6 +7,8 @@ const datenowEl = document.querySelector("#datenow");
 const othercurrencys = document.querySelector("#othercurrencys");
 const errmsg = document.querySelector("#errmsg");
 let rates = "";
+
+//Currency names in API
 const currencynames = {
 	ARS: "Argentine peso",
 	AUD: "Australain dollar",
@@ -61,6 +63,8 @@ const currencynames = {
 	USD: "US dollar",
 	UYU: "Uruguayan peso"
 }
+
+//Data fetch
 async function getexchange() {
 	await fetch(`${url}${maincurrency}`)
 		.then(response => {
@@ -77,11 +81,15 @@ async function getexchange() {
 			writecurrency(sortedrates);
 		})
 }
+
+//Exchange Event Listener
 maincurrencyEl.addEventListener("change", () => {
 	maincurrency = maincurrencyEl.value;
 	getexchange();
 });
 
+
+//Value Event Listener
 currencyvalueEl.addEventListener("input", () => {
 	currencyvalue = currencyvalueEl.value;
 	console.log(isNaN(currencyvalue));
