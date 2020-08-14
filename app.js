@@ -75,7 +75,8 @@ async function getexchange() {
 maincurrencyEl.addEventListener("change", () => {
 	maincurrency = maincurrencyEl.value;
 	getexchange();
-})
+});
+
 currencyvalueEl.addEventListener("input", () => {
 	currencyvalue = currencyvalueEl.value;
 	console.log(isNaN(currencyvalue));
