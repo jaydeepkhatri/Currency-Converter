@@ -27,6 +27,7 @@ body {
 }
 .currency {
 	display: flex;
+	justify-content: center;
 	position: sticky;
 	top: 0;
 	background: #fff;
@@ -39,9 +40,12 @@ body {
 	border: 0;
 	border-bottom: 2px solid #000;
 	margin-right: 8px;
+	outline: 0;
 	-moz-appearance: textfield;
 }
-
+.currency .currencyvalue:focus {
+	outline:0;
+}
 .currencyvalue::-webkit-outer-spin-button,
 .currencyvalue::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -72,6 +76,7 @@ select {
 }
 .scurrency:hover {
 	background: #f0f0f0;
+	box-shadow: 0 0 2px rgba(0,0,0,0.2);
 }
 .footer {
 	text-align: center;
@@ -88,5 +93,8 @@ select {
 	}
 	input[type="number"] {
 		width: 140px !important;
+	}
+	.footer {
+		font-size: 14px;
 	}
 }

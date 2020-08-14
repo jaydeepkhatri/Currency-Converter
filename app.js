@@ -34,7 +34,7 @@ const currencynames = {
 	ILS: "Israeli new shekel",
 	JPY: "Japanese yen",
 	KZT: "Kazakhstani tenge",
-	MYR: "Malayasian ringgi",
+	MYR: "Malayasian ringgit",
 	MVR: "Maldivian rufiyaa",
 	MXN: "Mexican peso",
 	NOK: "Norwegian krone",
@@ -74,9 +74,6 @@ async function getexchange() {
 			Object.keys(rates).sort().forEach(function (key) {
 				sortedrates[key] = rates[key];
 			});
-
-
-
 			writecurrency(sortedrates);
 		})
 }
@@ -111,6 +108,7 @@ function writecurrency(rates) {
 		eachcurrency.append(eachcurrencycountry);
 
 		let eachcurrencysymbol = document.createElement("span");
+		eachcurrencysymbol.classList = "currencysymbol";
 		eachcurrencysymbol.innerHTML = key;
 		eachcurrency.append(eachcurrencysymbol);
 
