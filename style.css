@@ -10,16 +10,21 @@ body {
     background: #f2f2f2;
 }
 .title {
-	margin-top: 40px;
+	/* margin-top: 40px; */
 	text-align: center;
 	font-size: 32px;
+	padding: 40px 0;
+	color: #FFF;
+	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("./lrKU8Nu.jpg");
+	background-size: cover;
+	background-position-y: bottom;
 }
 .container {
     margin-top: 20px;
 	background: #fff;
 	max-width: 600px;
 	margin: 20px auto;
-    border-radius: 8px;
+    
 }
 .currency {
 	display: flex;
@@ -27,7 +32,8 @@ body {
 	top: 0;
 	background: #fff;
 	padding: 20px;
-	box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+	border-bottom: 2px solid rgba(0,0,0,0.2);
+	/* box-shadow: 0 4px 20px rgba(0,0,0,0.2); */
 }
 .currency .currencyvalue {
 	flex: 1;
