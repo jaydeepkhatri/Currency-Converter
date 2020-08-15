@@ -78,6 +78,9 @@ select {
 	background: #f0f0f0;
 	box-shadow: 0 0 2px rgba(0,0,0,0.2);
 }
+.scurrencyvalue {
+	text-align: left;
+}
 .footer {
 	text-align: center;
 	padding: 20px;
@@ -93,6 +96,9 @@ select {
 	}
 	input[type="number"] {
 		width: 140px !important;
+	}
+	.scurrencyvalue {
+		text-align: right;
 	}
 	.footer {
 		font-size: 14px;

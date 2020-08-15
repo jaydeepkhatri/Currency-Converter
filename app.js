@@ -116,11 +116,12 @@ function writecurrency(rates) {
 		eachcurrency.append(eachcurrencycountry);
 
 		let eachcurrencysymbol = document.createElement("span");
-		eachcurrencysymbol.classList = "currencysymbol";
+		// eachcurrencysymbol.classList = "currencysymbol";
 		eachcurrencysymbol.innerHTML = key;
 		eachcurrency.append(eachcurrencysymbol);
 
 		let eachcurrencyrate = document.createElement("span");
+		eachcurrencyrate.classList = "scurrencyvalue";
 		eachcurrencyrate.innerHTML = (rates[key] * currencyvalue).toFixed(2);
 		eachcurrency.append(eachcurrencyrate);
 
