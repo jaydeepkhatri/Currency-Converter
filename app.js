@@ -128,5 +128,4 @@ function writecurrency(rates) {
 		othercurrencys.append(eachcurrency);
 	});
 }
-
 getexchange();
